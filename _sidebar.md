@@ -2,27 +2,11 @@
   * [主页](/)
   * [许可协议](depart/arrangement)
   * [贡献者与更新日志](depart/releases)
-  * [川大漫游指南：序言](depart/foreword)
-* **入学准备**
-  * [系统注册](preparations/registration)
-  * [入校前准备](preparations/accommodation)
-  * [行李](preparations/baggage)
-  * [报到](preparations/bailee)
-* **川大生活**
-  - [宿舍](lifestyle/dormitories)
-  - [美食](lifestyle/cuisine)
-  - [交通](lifestyle/transportation)
-  - [其它](lifestyle/others)
-  - [社团与学生会](lifestyle/organizations)
-  - [学校及校区介绍](lifestyle/school)
-* **教务与学习**
-  * [信息来源](study/information)
-  * [可用资源](study/resource)
-  * [课程及选课](study/lesson)
-  * [本科期间的提升途径](study/outstanding)
-  * [其它事项](study/others)
-  * [生涯规划](study/careers)
-* **计算机学院特别篇**
-  * [学院简介](scucs/scucs)
-  * [专业介绍及学习建议](scucs/study)
-  * [计算机学院的相关学生组织](scucs/organizations)
+  * [新媒体文档库：序言](depart/foreword)
+* **留任交接**
+  * [正部长](transition/secretary)
+  * [运营组](transition/essay)
+  * [摄影组](transition/shoot)
+  * [海报组](transition/poster)
+* **活动备忘**
+  - [计科之星](memo/jkzx)
