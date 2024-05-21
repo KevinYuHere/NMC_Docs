@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>川大漫游指南</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+</head>
+
+<body>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div style="height:100%;width:100%;position:fixed;z-index:-9999"></div>
+<style>
+    body.dark-mode section.cover.show {
+        background: #0d1116 !important;
+    }
+
+    .dark-mode{
+        background-color: #0d1116;
+        color: #e6edf3 !important;
+    }
+
+    .gt-container a:hover {
+        color: var(--theme-color,#066de8);
+        border: none;
+    }
+
+    .gt-container .gt-comment-content:hover {
+        -webkit-box-shadow: 0 0.625em 3.75em -2em #0d1116;
+        box-shadow: 0 0.625em 3.75em -2em #0d1116;
+    }
+
+    body.dark-mode .gt-container .gt-comment-content:hover {
+        -webkit-box-shadow: 0 0.625em 3.75em -2em #ffffff;
+        box-shadow: 0 0.625em 3.75em -2em #ffffff;
+    }
+
+    .gt-copyright {
+        display: none;
+    }
+
+    body.dark-mode .search input {
+        background: #0d1116;
+        color: #e6edf3 !important;
+    }
+
+    body.dark-mode .gt-container .gt-popup {
+        background:#0d1116;
+        border: 1px solid #666;
+    }
+
+    body.dark-mode input::-webkit-input-placeholder {
+        color: #e6edf3;
+    }
+
+    body.dark-mode .sidebar {
+        background-color: #0d1116;
+        color: #e6edf3;
+        border-right: 1px solid #666;
+    }
+
+    body.dark-mode .search {
+        background-color: #0d1116;
+        color: #e6edf3;
+        border-bottom: 1px solid #666;
+    }
+
+    body.dark-mode .sidebar-toggle {
+        background-color: rgba(21, 24, 25, 0.8);
+    }
+
+    body.dark-mode .sidebar ul li a {
+        color: #e6edf3;
+    }
+
+    body.dark-mode .sidebar ul li.active>a {
+        color: var(--theme-color,#066de8);
+    }
+
+    body.dark-mode .markdown-section code,
+    body.dark-mode .markdown-section pre {
+        background-color: #161b22;
+    }
+
+    body.dark-mode .token.punctuation {
+        color: #e6edf3;
+    }
+
+    body.dark-mode .gt-container .gt-comment-admin .gt-comment-content {
+        background-color: #131d2e;
+    }
+
+    body.dark-mode .gt-container .gt-comment-body {
+        color: #e6edf3 !important;
+    }
+
+    body.dark-mode .gt-container .gt-comment-content {
+        background-color: #161b22;
+        transition: color 0s ease-in-out !important;
+    }
+
+    body.dark-mode .gt-container .gt-btn-preview {
+        background-color: rgb(24, 25, 26) !important;
+    }
+
+    body.dark-mode .gt-container .gt-meta {
+        border-bottom: 1px solid #666;
+    }
+
+    body.dark-mode .token.cdata,
+    body.dark-mode .token.comment,
+    body.dark-mode .token.doctype,
+    body.dark-mode .token.prolog {
+        color: #e6edf3;
+    }
+
+    body.dark-mode .markdown-section blockquote {
+        color: #7c8590
+    }
+
+    body.dark-mode .markdown-section pre>code {
+        color: #e6edf3;
+    }
+
+    body.dark-mode span {
+        color: #e6edf3 !important;
+    }
+
+    body.dark-mode .gt-btn-login .gt-btn-text,
+    body.dark-mode .gt-btn-public .gt-btn-text{
+        color: black !important;
+    }
+
+    body.dark-mode .gt-container .gt-header-preview {
+        background-color: rgb(24, 25, 26) !important;
+        color: #e6edf3;
+        border: 1px solid #666;
+    }
+
+    body.dark-mode .control-btn {
+        color: black;
+    }
+
+    body.dark-mode .anchor span {
+        color: #e6edf3;
+    }
+
+    body.dark-mode .markdown-section tr:nth-child(2n) {
+        background-color: #161b22;
+    }
+
+    body.dark-mode .markdown-section th,
+    body.dark-mode .markdown-section td {
+        border: 1px solid #666;
+    }
+
+    body.dark-mode .docsify-pagination-container {
+        border-top: 1px solid #666;
+    }
+
+    body.dark-mode .gt-container .gt-user .gt-ico svg {
+        fill: #E0E0E0 !important;
+    }
+
+    body.dark-mode .gt-container .gt-header-textarea {
+        background-color: rgb(24, 25, 26) !important;
+        color: #e6edf3;
+        border: 1px solid #666;
+    }
+
+    body.dark-mode .markdown-section hr {
+        border-bottom: 1px solid #666;
+    }
+
+    body.dark-mode .alert.flat.attention {
+        background-color: rgb(58, 14, 11) !important;
+        color: rgb(236, 174, 169) !important;
+        border-color: rgb(210, 37, 27) !important;
+    }
+
+    body.dark-mode .alert.flat.attention .title {
+        color: rgb(232, 156, 150) !important;
+    }
+
+    body.dark-mode .alert.flat.attention .icon-attention {
+        filter: saturate(0.8) brightness(0.86) hue-rotate(180deg) invert(1);
+        color: rgb(233, 160, 155) !important;
+    }
+
+    body.dark-mode .alert.flat.note {
+        background-color: rgb(8, 32, 43) !important;
+        color: rgb(139, 214, 248) !important;
+        border-color: rgb(27, 154, 208) !important;
+    }
+
+    body.dark-mode .alert.flat.note .title {
+        color: rgb(134, 212, 248) !important;
+    }
+
+    body.dark-mode .alert.flat.note .icon-note {
+        filter: saturate(0.8) brightness(0.86) hue-rotate(180deg) invert(1);
+        color: rgb(134, 212, 248) !important;
+    }
+
+    body.dark-mode .alert.flat.warning {
+        background-color: rgb(40, 15, 7) !important;
+        color: rgb(240, 166, 144) !important;
+        border-color: rgb(217, 66, 24) !important;
+    }
+
+    body.dark-mode .alert.flat.warning .title {
+        color: rgb(240, 166, 144) !important;
+    }
+
+    body.dark-mode .alert.flat.warning .icon-warning {
+        filter: saturate(0.8) brightness(0.86) hue-rotate(180deg) invert(1);
+        color: rgb(240, 166, 144) !important;
+    }
+
+    body.dark-mode .alert.flat.tip {
+        background-color: rgb(17, 37, 18) !important;
+        color: rgb(172, 219, 174) !important;
+        border-color: rgb(73, 165, 79) !important;
+    }
+
+    body.dark-mode .alert.flat.tip .title {
+        color: rgb(165, 217, 169) !important;
+    }
+
+    body.dark-mode .alert.flat.tip .icon-tip {
+        filter: saturate(0.8) brightness(0.86) hue-rotate(180deg) invert(1);
+        color: rgb(165, 217, 169) !important;
+    }
+
+    body.dark-mode .markdown-section strong,body.dark-mode .markdown-section b {
+        color: #e6edf3;
+    }
+
+    .gt-ico-text {
+        color: #000000;
+    }
+
+    gt-btn-text {
+        color: #ffffff;
+    }
+    .gt-container .gt-btn-preview {
+        color: var(--theme-color,#066de8);
+    }
+    .gt-container .gt-btn-login {
+        background-color: var(--theme-color,#066de8);
+        border: 1px solid var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-btn-public {
+        background-color: var(--theme-color,#066de8);
+        border: 1px solid var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-btn-public:hover {
+        background-color: var(--theme-color,#066de8);
+        border: 1px solid var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-btn {
+        border: 1px solid var(--theme-color,#066de8);
+    }
+
+    .gt-container a {
+        color: var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-btn-preview:hover {
+        border: 1px solid var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-svg svg {
+        fill: var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-comment-username {
+        color: var(--theme-color,#066de8);
+    }
+
+    .gt-container .gt-popup .gt-action.is--active:before {
+        background: var(--theme-color,#066de8);
+    }
+
+    body.dark-mode div.gt-popup a:not(.is--active) span {
+        color: var(--theme-color,#066de8) !important;
+    }
+
+    .app-name {
+        text-align: left !important;
+        margin: 0 0 0 15px !important;
+    }
+
+    #back-to-top-container {
+        z-index: 50;
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+    }
+
+    #color-container {
+        z-index: 50;
+        position: fixed;
+        top: 40px;
+        right: 40px;
+    }
+
+    .control-btn {
+        transition: opacity 0.3s ease-in-out;
+        color: white;
+        background-color: var(--theme-color,#066de8);
+        padding: 8.5px;
+        border-radius: 22px;
+        height: 44px;
+        width: 44px;
+        border: none;
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .control-btn:hover {
+        filter: brightness(120%);
+    }
+
+    .sidebar .sidebar-nav {
+
+    }
+
+    .sidebar-toggle {
+        /*opacity: 0 !important;*/
+        /*pointer-events: none !important;*/
+    }
+</style>
+<div id="app">正在加载中，请稍候......</div>
+<div style="position: fixed; width: 100%; z-index: 999; height: 3px; top: 0;">
+    <div id="progress-display"
+         style="background-color: var(--theme-color,#066de8); width: 0; border-radius: 2px; height: 3px; transition: width 0.3s;">
+    </div>
+</div>
+<div id="back-to-top-container">
+    <button id="back-to-top-btn" class="control-btn" onclick="scrollToTop()" style="pointer-events: none;opacity: 0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+             stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+        </svg>
+    </button>
+</div>
+<div id="color-container">
+    <button id="color-btn" class="control-btn" onclick="toggleColorScheme()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+             stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+        </svg>
+    </button>
+</div>
+<script>
+    var darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // 添加媒体查询监听器
+    darkModeMediaQuery.addEventListener('change', function (event) {
+        if ((event.matches&&!document.body.classList.contains('dark-mode'))||(!event.matches&&document.body.classList.contains('dark-mode'))) {
+            // 当浏览器处于暗色模式时
+            toggleColorScheme();
+        }
+    });
+
+    // 初始时检查浏览器是否处于暗色模式
+    if (darkModeMediaQuery.matches) {
+        toggleColorScheme();
+    }
+    function toggleColorScheme() {
+        let bodyElement = document.body;
+
+        if (bodyElement.classList.contains('dark-mode')) {
+            bodyElement.classList.remove('dark-mode');
+            let btn = document.getElementById('color-btn');
+            btn.style.opacity = 0;
+            btn.style.pointerEvents = 'none';
+            document.documentElement.style.setProperty('--theme-color', '#066de8');
+            setTimeout(function () {
+                btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">' +
+                        '<path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />' +
+                        '</svg>';
+                btn.style.opacity = 1;
+                btn.style.pointerEvents = 'auto';
+            }, 310);
+        } else {
+            bodyElement.classList.add('dark-mode');
+            let btn = document.getElementById('color-btn');
+            btn.style.opacity = 0;
+            btn.style.pointerEvents = 'none';
+            document.documentElement.style.setProperty('--theme-color', 'rgb(245,223,77)');
+            setTimeout(function () {
+                btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">' +
+                        '<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />' +
+                        '</svg>';
+                btn.style.opacity = 1;
+                btn.style.pointerEvents = 'auto';
+            }, 310);
+        }
+    }
+
+    function scrollToTop() {
+        // Scroll to the top of the page with smooth animation
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Show or hide the button based on scroll position
+    window.addEventListener('scroll', function () {
+        reSetBackBtn();
+    });
+
+    function reSetBackBtn() {
+        let button = document.getElementById('back-to-top-btn');
+        const idurl = decodeURI(window.location.hash).split('?')[0];
+        if(idurl === '#/')
+        {
+            button.style.opacity = '0';
+            button.style.pointerEvents = 'none';
+            return;
+        }
+        if (window.scrollY > 0) {
+            button.style.opacity = '1';
+            button.style.pointerEvents = 'auto';
+        } else {
+            button.style.opacity = '0';
+            button.style.pointerEvents = 'none';
+        }
+    }
+
+    function reSetProgress() {
+        const idurl = decodeURI(window.location.hash).split('?')[0];
+        if(idurl === '#/')
+        {
+            document.getElementById("progress-display").style.width = '0%';
+            return;
+        }
+        let totalHeight =
+                parseFloat(
+                        window.getComputedStyle(document.getElementsByClassName("content")[0]).paddingTop.replace("px", "")
+                ) +
+                parseFloat(
+                        window
+                                .getComputedStyle(document.getElementById("main"))
+                                .height.replace("px", "")
+                );
+        let scrollTop =
+                document.body.scrollTop + document.documentElement.scrollTop;
+        let remain = totalHeight - document.body.offsetHeight;
+        document.getElementById("progress-display").style.width =
+                Math.ceil((scrollTop / remain) * 100) + "%";
+    }
+    window.addEventListener("scroll", function (e) {
+        reSetProgress();
+    });
+    var right = 0;
+    var date = new Date;
+    var year = date.getFullYear();
+    window.$docsify = {
+        count: {
+            language: 'chinese'
+        },
+        pagination: {
+            previousText: '上一章节',
+            nextText: '下一章节',
+            crossChapter: true,
+            crossChapterText: true,
+        },
+        'flexible-alerts': {
+            style: 'flat',
+            note: {
+                label: "备注"
+            },
+            tip: {
+                label: "提示"
+            },
+            warning: {
+                label: "警告"
+            },
+            attention: {
+                label: "注意"
+            },
+        },
+        markdown: {
+            renderer: {
+                strong(text) {
+                    return `<strong><b>${text}</b></strong>`;
+                }
+            }
+        },
+        search: {
+            paths: 'auto',
+            placeholder: '(｡･∀･)ﾉﾞ嗨，尝试搜索一下吧',
+            noData: '啊哦，没有找到指定内容＞︿＜',
+            depth: 6,
+            hideOtherSidebarContent: true,
+        },
+        name: '<h4 style="margin: 0">川大漫游指南</h4>',
+        nameLink: '/#/depart/foreword',
+        coverpage: true,
+        notFoundPage: true,
+        onlyCover: true,
+        auto2top: true,
+        loadSidebar: true,
+        executeScript: true,
+        subMaxLevel: 6,
+        themeColor: '#066de8',
+        autoHeader: true,
+        topMargin: 40,
+        plugins: [
+            function (hook, vm) {
+                var footer = [
+                    '<footer>',
+                    '<div id="gitalk-container"></div>',
+                    '<hr/>',
+                    '<span style="line-height:180%;">&copy;　2021-<span id=year></span>　除非另有声明，本网站采用<a href="#/depart/arrangement" target="_blank">该许可协议</a>授权</span>',
+                    '</footer>',
+                ].join('');
+                hook.afterEach(function (html) {
+                    document.getElementById("main").style.display = "";
+                    return html + footer;
+                }),
+                        hook.init(function () {
+                            window.onhashchange = function(event){
+                                setTimeout(function(){
+                                    let note = '#' + vm.route.path;
+                                    let x = document.getElementsByClassName("at");
+                                    let i;
+                                    for (i = 0; i < x.length; i++) {
+                                        if (x[i].href.indexOf("?id=") != -1) {
+                                            continue;
+                                        }
+                                        var arr = x[i].href.split("//");
+                                        var che = arr[1].substring(arr[1].indexOf("#") + 1);
+                                        document.getElementById(che).id = '_' + che;
+                                        x[i].href = note + "?id=_" + che;
+                                        x[i].setAttribute('data-id', che.replace(/#/g, ""));
+                                        x[i].className = 'anchor';
+                                    }
+                                    if (window.location.href.indexOf("?") != -1) {
+                                        history.replaceState(null, null, window.location.href.substring(0, window.location.href.indexOf("?")));
+                                    }
+                                }, 1000);
+                            }
+                        });
+                hook.doneEach(function () {
+                    if (right == 1) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('get', 'https://v1.hitokoto.cn?c=i&c=k');
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4) {
+                                var data = JSON.parse(xhr.responseText);
+                                var hitokoto = document.getElementById('hitokoto');
+                                hitokoto.innerText = data.hitokoto;
+                                var hito = document.getElementById('creator');
+                                hito.innerText = data.from;
+                            }
+                        }
+                        xhr.send();
+                        right = 0;
+                    }
+                    document.getElementById("year").innerHTML = year.toString();
+                    const idurl = decodeURI(window.location.hash).split('?')[0];
+                    let gitalk = new Gitalk({
+                        clientID: '9bad8949906955fe8545',
+                        clientSecret: '042280ae9f3934c9ae1757b904f873811404df91',
+                        repo: 'GoSCU-Talk',
+                        owner: 'KevinYuHere',
+                        admin: ['KevinYuHere'],
+                        distractionFreeMode: false,
+                        id: idurl,
+                        pagerDirection: 'first',
+                    });
+                    let el = document.getElementById('gitalk-container')
+                    while(el.hasChildNodes()) el.removeChild(el.firstChild)
+                    gitalk.render('gitalk-container');
+                    setTimeout(function () {
+                        reSetProgress();
+                        reSetBackBtn();
+                    }, 500);
+                });
+                hook.mounted(function () {
+                    const btn = document.querySelector("button.sidebar-toggle")
+                    btn.addEventListener("click", function (e) {
+                        setTimeout(function () {
+                            reSetProgress();
+                            reSetBackBtn();
+                        }, 500);
+                    });
+                });
+            }
+        ],
+    }
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+    }
+</script>
+<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+<script src="//unpkg.com/docsify-count/dist/countable.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+</body>
+
+</html>
